@@ -88,7 +88,7 @@ jobs:
       - name: Enable openssl
         run: |
           sed -i '/CONFIG_PACKAGE_wpad-mbedtls=y/d' .config
-          curl -SL https://raw.githubusercontent.com/danpawlik/openwrt-builder/master/configs/common/openssl >> .config
+          curl -SL https://raw.githubusercontent.com/rajasjoshi/openwrt-builder/master/configs/common/openssl >> .config
 
       - name: Run defconfig
         run: |
@@ -99,7 +99,7 @@ jobs:
           grep "=m" .config | grep -v 'CONFIG_PACKAGE_libustream-mbedtls=m' | while read -r line; do module=$(echo "$line" | cut -f1 -d'='); sed -i "s/^$line$/# $module is not set/" .config; done
 
       - name: Build the firmware image
-        run: make -j $(nproc) defconfig download world
+        run: make -j $(nproc) defconfig download world V=sc
 
       - name: Package output
         run: tar -cvf rpi-5-images.tar bin/targets/bcm27xx/bcm2712
