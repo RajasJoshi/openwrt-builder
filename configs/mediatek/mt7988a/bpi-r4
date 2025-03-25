@@ -5,3 +5,12 @@
 CONFIG_TARGET_mediatek=y
 CONFIG_TARGET_mediatek_filogic=y
 CONFIG_TARGET_mediatek_filogic_DEVICE_bananapi_bpi-r4=y
+
+# Add ath12k packages
+CONFIG_ATH_USER_REGD=y
+CONFIG_PACKAGE_ATH_DEBUG=y
+CONFIG_PACKAGE_ATH_DFS=y
+CONFIG_PACKAGE_ATH_SPECTRAL=y
+CONFIG_PACKAGE_kmod-ath=y
+CONFIG_PACKAGE_kmod-ath12k=y
+CONFIG_PACKAGE_kmod-qcom-qmi-helpers=y
